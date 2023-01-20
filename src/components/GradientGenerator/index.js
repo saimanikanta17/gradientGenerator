@@ -40,6 +40,7 @@ class GradientGenerator extends Component {
 
     return (
       <GradientContainer
+        data-testid="gradientGenerator"
         generate={generate}
         colorOne={colorOne}
         colorTwo={colorTwo}
@@ -47,18 +48,20 @@ class GradientGenerator extends Component {
       >
         <h1>Generate a CSS Color Gradient</h1>
         <p>Choose Direction</p>
-        <div>
+        <ul>
           {gradientDirectionsList.map(gradientDirection => (
             <GradientDirectionItem
               gradientDirection={gradientDirection}
               key={gradientDirection.directionId}
               changeDirection={this.changeDirection}
+              direction={direction}
             />
           ))}
-        </div>
+        </ul>
+        <p>Pick the Colors</p>
         <div>
           <label>
-            {colorOne}
+            <p>{colorOne}</p>
             <input
               type="color"
               value={colorOne}
@@ -66,7 +69,7 @@ class GradientGenerator extends Component {
             />
           </label>
           <label>
-            {colorTwo}
+            <p>{colorTwo}</p>
             <input
               type="color"
               value={colorTwo}

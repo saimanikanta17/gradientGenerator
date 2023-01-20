@@ -1,13 +1,18 @@
+import {DirectionButton} from './styledComponents'
+
 const GradientDirectionItem = props => {
-  const {gradientDirection, changeDirection} = props
+  const {gradientDirection, changeDirection, direction} = props
   const {displayText, value} = gradientDirection
   const clickButton = () => {
     changeDirection(value)
   }
+  const isActive = direction === value
   return (
-    <button type="button" onClick={clickButton}>
-      {displayText}
-    </button>
+    <li>
+      <DirectionButton isActive={isActive} type="button" onClick={clickButton}>
+        {displayText}
+      </DirectionButton>
+    </li>
   )
 }
 
